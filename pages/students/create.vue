@@ -11,6 +11,7 @@ import { NuxtLink } from '../../.nuxt/components';
       <div class="card-body">
         <form @submit.prevent="createAccount" action="">
           <div v-if="isLoading">
+            <TheSpinner :title="isLoadingText"/>
           </div>
           <div class="form-group">
             <div class="mb-3">
@@ -18,7 +19,7 @@ import { NuxtLink } from '../../.nuxt/components';
               <input
                 v-model="student.name"
                 type="text"
-                id="username"
+                id="username" 
                 class="form-control"
                 placeholder="Enter Fullnames"
               />
@@ -125,7 +126,7 @@ export default {
   methods: {
     createAccount() {
       this.isLoading = "true";
-      this.isLoading = "saving";
+      this.isLoadingText = "saving";
       alert(this.student.password);
     },
   },
